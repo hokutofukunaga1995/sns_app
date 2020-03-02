@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    個別投稿
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+    <div class="alert alert-success" role="alert">
+        <p>タイトル：{{object.title}}</p>
+        <p>投稿者：{{object.author}}</p>
+        <p>内容：{{object.content}}</p>
+        <p><img src='{{object.images.url}}' width=300px></p>
+        <button type="button" class="btn btn-primary">いいね！</button>
+        <button type="button" class="btn btn-secondary">既読</button>
+    </div>
+    <a href="{% url 'logout' %}">ログアウト</a>
+</div>
+{% endblock content %}
