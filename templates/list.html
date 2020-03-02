@@ -11,11 +11,19 @@
 
 {% block content %}
 <div class='container'>
+    <div class="alert alert-danger" style="text-align:center" role="alert">
+        {% if error %}
+        {{ error }}
+        {% endif%}
+    </div>
+    {% for item in object_list %}
     <div class="alert alert-success" role="alert">
-        <p>タイトル：</p>
-        <p>投稿者：</p>
+        <p>タイトル：<a href="{% url 'detail' item.pk %}">{{item.title}}</a></p>
+        <p>投稿者：{{item.author}}</p>
         <button type="button" class="btn btn-primary">Primary</button>
         <button type="button" class="btn btn-secondary">Secondary</button>
     </div>
+    {% endfor %}
+    <a href="{% url 'logout' %}">ログアウト</a>
 </div>
 {% endblock content %}
