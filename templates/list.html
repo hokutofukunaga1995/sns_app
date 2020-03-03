@@ -11,17 +11,16 @@
 
 {% block content %}
 <div class='container'>
-    <div class="alert alert-danger" style="text-align:center" role="alert">
-        {% if error %}
-        {{ error }}
-        {% endif%}
-    </div>
+    {% if error %}
+    {{ error }}
+    {% endif%}
+    <a href="{% url 'create' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin:10px;">新規作成</a>
     {% for item in object_list %}
     <div class="alert alert-success" role="alert">
         <p>タイトル：<a href="{% url 'detail' item.pk %}">{{item.title}}</a></p>
         <p>投稿者：{{item.author}}</p>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-secondary">Secondary</button>
+        <a href="#" class="btn btn-primary" 　role='button' aria-pressed='ture'>いいね！:{{item.good}}</a>
+        <a href="#" class="btn btn-primary" 　role='button' aria-pressed='ture'>既読:{{item.read}}人</a>
     </div>
     {% endfor %}
     <a href="{% url 'logout' %}">ログアウト</a>

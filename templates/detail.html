@@ -16,8 +16,8 @@
         <p>投稿者：{{object.author}}</p>
         <p>内容：{{object.content}}</p>
         <p><img src='{{object.images.url}}' width=300px></p>
-        <button type="button" class="btn btn-primary">いいね！</button>
-        <button type="button" class="btn btn-secondary">既読</button>
+        <a href="{% url 'good' object.pk %}" class="btn btn-primary"　role='button' aria-pressed='ture'>いいね！:{{object.good}}</a>
+        <a href="{% url 'read' object.pk %}" class="btn btn-primary"　role='button' aria-pressed='ture'>既読:{{object.read}}人</a>
     </div>
     <a href="{% url 'logout' %}">ログアウト</a>
 </div>
